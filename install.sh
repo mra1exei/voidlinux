@@ -3,14 +3,14 @@
 
 xbps-install -Su xbps
 
-read -p "Введите путь к диску [/dev/sda]" DEVICE1
+read -p "Input path to disk [/dev/sda]" DEVICE1
 wipefs --force --all $DEVICE1
 parted --script $DEVICE1 \
     mklabel gpt \
     mkpart primary 1MiB 513MiB \
     mkpart primary 513MiB 100%
 
-read -p "Введите путь к диску [/dev/sdb]" DEVICE2
+read -p "Input path to disk [/dev/sdb]" DEVICE2
 wipefs --force --all $DEVICE2
 parted --script $DEVICE2 \
     mklabel gpt \
@@ -63,7 +63,7 @@ cp /etc/resolv.conf /mnt/etc/
 chroot /mnt chown root:root /
 chroot /mnt chmod 755 /
 chroot /mnt passwd root
-read -p "Введите имя компьютера: " HOSTNAME
+read -p "Input hostname: " HOSTNAME
 chroot /mnt echo $HOSTNAME > /etc/hostname
 chroot /mnt cat <<EOF > /etc/rc.conf
 TIMEZONE="Europe/Moscow"
