@@ -2,6 +2,7 @@
 # Void installation.
 
 xbps-install -Su xbps
+xbps-install -Su parted
 
 read -p "Input path to disk [/dev/sda]" DEVICE1
 wipefs --force --all $DEVICE1
